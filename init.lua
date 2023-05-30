@@ -18,12 +18,12 @@ autocmd("BufEnter", {
 })
 
 -- enable code folding in Treesitter
-vim.wo.foldmethod="expr"
-vim.o.foldexpr="nvim_treesitter#foldexpr()"
-vim.wo.foldenable=false -- can be enabled directly in opened file - using 'zi' - toogle fold
-local ayGroupFold = autogroup("Fold", { clear = true })
-autocmd({ "BufEnter" }, {
-    pattern = { "*" },
-    command = "normal zx zR",
-    group = ayGroupFold,
-})
+-- vim.wo.foldmethod="expr"
+-- vim.o.foldexpr="nvim_treesitter#foldexpr()"
+-- vim.wo.foldenable=false -- can be enabled directly in opened file - using 'zi' - toogle fold
+-- local ayGroupFold = autogroup("Fold", { clear = true })
+-- autocmd({ "BufEnter" }, {
+--     pattern = { "*" },
+--     command = "normal zx zR",
+--     group = ayGroupFold,
+-- })

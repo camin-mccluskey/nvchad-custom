@@ -6,7 +6,8 @@ local util = require "lspconfig/util"
 
 -- if you just want default config for the servers then put them in a table
 -- n.b. rust-analyzer is installed w/ rust-tools plugin
-local servers = { "html", "cssls", "tsserver", "pyright", "prismals", "tailwindcss", "dockerls", "docker_compose_language_service", "clojure_lsp", "lua_ls", "emmet_ls" }
+-- full list of servers: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+local servers = { "html", "cssls", "tsserver", "pyright", "prismals", "tailwindcss", "dockerls", "docker_compose_language_service", "clojure_lsp", "lua_ls", "emmet_ls", "vimls", "regex", "marksman" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

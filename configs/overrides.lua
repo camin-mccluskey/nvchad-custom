@@ -3,6 +3,7 @@ local obsidianOpts = require "custom.configs.obsidian"
 local M = {}
 
 M.treesitter = {
+  -- support parsers
   ensure_installed = {
     "vim",
     "lua",
@@ -17,6 +18,8 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "prisma",
+    "regex",
+    "bash",
   },
   indent = {
     enable = true,
@@ -32,10 +35,12 @@ M.treesitter = {
 }
 
 M.mason = {
+  -- available language servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
   ensure_installed = {
     -- lua stuff
     "lua-language-server",
     "stylua",
+    "vimls",
 
     -- other LSPs
     "css-lsp",
@@ -53,6 +58,7 @@ M.mason = {
     "rust-analyzer",
     "tailwindcss-language-server",
     "emmet-ls",
+    "marksman",
 
     -- formatters
     "prettier",
