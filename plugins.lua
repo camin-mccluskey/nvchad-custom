@@ -26,8 +26,8 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      'kkharji/sqlite.lua',
-      'nvim-telescope/telescope-smart-history.nvim',
+      "kkharji/sqlite.lua",
+      "nvim-telescope/telescope-smart-history.nvim",
     },
     opts = overrides.telescope,
   },
@@ -47,7 +47,6 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-
 
   -- Install a plugin
   {
@@ -152,7 +151,7 @@ local plugins = {
   {
     "rcarriga/nvim-notify",
     config = function()
-      require("notify")
+      require "notify"
     end,
   },
 
@@ -187,6 +186,10 @@ local plugins = {
           long_message_to_split = true, -- long messages will be sent to a split
           inc_rename = false, -- enables an input dialog for inc-rename.nvim
           lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+        routes = {
+          filter = { find = "No information available" },
+          opts = { stop = true },
         },
       }
     end,
