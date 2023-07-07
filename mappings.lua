@@ -2,15 +2,15 @@
 local M = {}
 
 local function get_daily_note_path()
-  return string.format(":e ~/Obsidian-camin-vault/Daily/%s.md<CR>", os.date("%Y-%m-%d"))
+  return string.format(":e ~/Obsidian-camin-vault/Daily/%s.md<CR>", os.date "%Y-%m-%d")
 end
 
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>dn"] = {get_daily_note_path(), "Go to Daily Note page", opts = { noremap = true } },
-    ["<leader>ct"] = {":normal! i" .. os.date("%H:%M:%S") .. "<CR>", "Paste Current Time", opts = { noremap = true } },
-    ["<leader>ra"] = {":lua vim.lsp.buf.rename()<CR>", "lsp rename", opts = { noremap = true } },
+    ["<leader>dn"] = { get_daily_note_path(), "Go to Daily Note page", opts = { noremap = true } },
+    ["<leader>ct"] = { ":normal! i" .. os.date "%H:%M:%S" .. "<CR>", "Paste Current Time", opts = { noremap = true } },
+    ["<leader>ra"] = { ":lua vim.lsp.buf.rename()<CR>", "lsp rename", opts = { noremap = true } },
   },
   v = {
     ["K"] = { ":move '<-2<CR>gv=gv", "move selection up" },
@@ -19,7 +19,7 @@ M.general = {
 }
 
 M.nvterm = {
- n = {
+  n = {
     -- toggle in normal mode
     ["<A-i>"] = {
       function()
@@ -66,6 +66,7 @@ M.nvterm = {
 
 -- more keybinds!
 M.dap = {
+  plugin = true,
   n = {
     ["<F5>"] = {
       function()
@@ -78,12 +79,24 @@ M.dap = {
       "Toggle Breakpoint",
     },
     ["<leader>dus"] = {
-      function ()
-        local widgets = require('dap.ui.widgets');
-        local sidebar = widgets.sidebar(widgets.scopes);
-        sidebar.open();
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
       end,
       "Open Debugging Sidebar",
+    },
+  },
+}
+
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<leader>dpr"] = {
+      function()
+        require("dap-python").test_method()
+      end,
+      "Python Run Test Method",
     },
   },
 }

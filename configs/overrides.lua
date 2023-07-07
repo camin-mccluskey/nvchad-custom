@@ -50,7 +50,7 @@ M.mason = {
     "clojure-lsp",
     "docker-compose-language-service",
     "dockerfile-language-server",
-    "eslint-lsp",
+    "eslint",
     "gopls",
     "json-lsp",
     "prisma-language-server",
@@ -59,10 +59,20 @@ M.mason = {
     "tailwindcss-language-server",
     "emmet-ls",
     "marksman",
+    "astro-language-server",
 
     -- formatters
-    "prettier",
+    "prettierd",
     "rustfmt",
+    "black",
+
+    -- linters
+    "mypy",
+    "ruff",
+    "eslint_d",
+
+    -- DAPs
+    "debugpy",
   },
 }
 
@@ -100,11 +110,11 @@ M.telescope = {
     limit = 100,
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
       },
     },
   },
-  extensions_list = { 'smart_history' }
+  extensions_list = { "smart_history" },
 }
 
 return M
