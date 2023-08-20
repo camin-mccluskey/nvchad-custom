@@ -101,4 +101,15 @@ M.dap_python = {
   },
 }
 
+M.crates = {
+  n = {
+    ["<leader>rcu"] = {
+      function()
+        require("crates").upgrade_all_crates()
+      end,
+      "Upgrade All Crates",
+    },
+  },
+}
+
 return M

@@ -48,6 +48,15 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      local M = require "plugins.configs.cmp"
+      table.insert(M.sources, { name = "crates" })
+      return M
+    end,
+  },
+
   -- Install a plugin
   {
     "folke/todo-comments.nvim",
@@ -129,7 +138,7 @@ local plugins = {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
     config = function(_, opts)
-      require("nvim-dap-virtual-text").setup()
+      require("nvim-dap-virtual-text").setup {}
     end,
   },
 
@@ -144,6 +153,16 @@ local plugins = {
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
       require("core.utils").load_mappings "dap_python"
+    end,
+  },
+
+  {
+    "saecki/crates.nvim",
+    ft = { "rust", "toml" },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
     end,
   },
 

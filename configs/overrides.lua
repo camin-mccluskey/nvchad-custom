@@ -63,7 +63,6 @@ M.mason = {
 
     -- formatters
     "prettierd",
-    "rustfmt",
     "black",
 
     -- linters
@@ -90,6 +89,10 @@ M.nvimtree = {
   diagnostics = {
     enable = true,
     show_on_dirs = true,
+  },
+
+  filters = {
+    custom = { ".DS_Store" },
   },
 
   renderer = {
