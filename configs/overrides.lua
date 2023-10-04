@@ -20,6 +20,7 @@ M.treesitter = {
     "prisma",
     "regex",
     "bash",
+    "clojure",
   },
   indent = {
     enable = true,
@@ -31,6 +32,11 @@ M.treesitter = {
     enable = true,
     -- for Obsidian.nvim
     additional_vim_regex_highlighting = { "markdown" },
+  },
+  -- Necessary to allow nvim-ts-context-commentstring to hook into commenting - https://github.com/JoosepAlviste/nvim-ts-context-commentstring/wiki/Integrations#plugins-with-a-pre-comment-hook
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   },
 }
 

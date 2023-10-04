@@ -33,7 +33,7 @@ local options = {
   end,
 
   -- we don't want this plugin to manager frontmatter
-  disable_frontmatter = true,
+  disable_frontmatter = false,
 
   -- b/c configured on Obsidian instance
   use_advanced_uri = true,

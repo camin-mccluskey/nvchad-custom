@@ -41,6 +41,14 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        config = function()
+          require("ts_context_commentstring").setup {}
+        end,
+      },
+    },
   },
 
   {
@@ -54,6 +62,15 @@ local plugins = {
       local M = require "plugins.configs.cmp"
       table.insert(M.sources, { name = "crates" })
       return M
+    end,
+  },
+
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup {
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      }
     end,
   },
 
