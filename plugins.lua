@@ -76,6 +76,20 @@ local plugins = {
 
   -- Install a plugin
   {
+    "antosha417/nvim-lsp-file-operations",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-tree.lua",
+    },
+    config = function()
+      require("lsp-file-operations").setup {
+        debug = true,
+      }
+    end,
+  },
+
+  {
     "folke/todo-comments.nvim",
     lazy = false,
     config = function()
